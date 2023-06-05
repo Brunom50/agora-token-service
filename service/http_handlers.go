@@ -11,6 +11,9 @@ import (
 
 func (s *Service) getRtcToken(c *gin.Context) {
 	log.Println("Generating RTC token")
+	c.Header("Access-Control-Allow-Origin", "*")
+	c.Header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+	c.Header("Access-Control-Allow-Headers", "Content-Type")
 	// get param values
 	channelName, tokenType, uidStr, _, role, expireTimestamp, err := s.parseRtcParams(c)
 
@@ -74,6 +77,7 @@ func (s *Service) getRtmToken(c *gin.Context) {
 
 func (s *Service) getRtcRtmToken(c *gin.Context) {
 	log.Println("Generating RTC and RTM tokens")
+
 	// get rtc param values
 	channelName, tokenType, uidStr, rtmuid, role, expireTimestamp, rtcParamErr := s.parseRtcParams(c)
 
