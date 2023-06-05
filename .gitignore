@@ -26,6 +26,3 @@ agora-token-server
 # vendor/
 
 .DS_Store
-
-# Environment variable
-.env
